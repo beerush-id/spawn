@@ -14,12 +14,18 @@ for (const command of commands) {
       cp.stdout.on('data', (data) => {
         console.log(`[${cmd}]: ${data.toString().replace(/\n$/, '')}`);
       });
+      cp.stderr.on('data', (data) => {
+        console.error(`[${cmd}]: ${data.toString().replace(/\n$/, '')}`);
+      });
     }, parseInt(delay));
   } else {
     const cp = spawn(cmd, args, { shell: true });
 
     cp.stdout.on('data', (data) => {
       console.log(`[${cmd}]: ${data.toString().replace(/\n$/, '')}`);
+    });
+    cp.stderr.on('data', (data) => {
+      console.error(`[${cmd}]: ${data.toString().replace(/\n$/, '')}`);
     });
   }
 }
