@@ -15,7 +15,7 @@ for (const command of commands) {
         console.log(`[${cmd}]: ${data.toString().replace(/\n$/, '')}`);
       });
       cp.stderr.on('data', (data) => {
-        console.error(`[${cmd}]: ${data.toString().replace(/\n$/, '')}`);
+        console.log(`[${cmd}]: ${data.toString().replace(/\n$/, '')}`);
       });
     }, parseInt(delay));
   } else {
@@ -25,7 +25,7 @@ for (const command of commands) {
       console.log(`[${cmd}]: ${data.toString().replace(/\n$/, '')}`);
     });
     cp.stderr.on('data', (data) => {
-      console.error(`[${cmd}]: ${data.toString().replace(/\n$/, '')}`);
+      console.log(`[${cmd}]: ${data.toString().replace(/\n$/, '')}`);
     });
   }
 }
